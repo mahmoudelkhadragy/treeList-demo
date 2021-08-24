@@ -1,0 +1,77 @@
+<h2 class="content-block">Home</h2>
+
+<div class="content-block">
+  <div class="dx-card responsive-paddings">
+    <!-- <div class="row">
+      <div class="col-12 col-md-3">
+        <div class="form-group form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="showBorders"
+            value="showBorders"
+            (change)="showhideBorders()"
+          />
+          <label class="form-check-label" for="showBorders">Show Borders</label>
+        </div>
+      </div>
+    </div> -->
+
+    <input type="checkbox" value="showBorders" (change)="showhideBorders()" />
+    <label> Show Borders </label>
+
+    <input type="checkbox" value="showRowLines" (change)="showHideRowLines()" />
+    <label> Show Row Lines</label>
+
+    <input
+      type="checkbox"
+      value="showSearchField"
+      (change)="showHideSearchField()"
+    />
+    <label> Show Search Field</label>
+
+    <!-- <input type="checkbox" value="isActionColumnVisible" (change)="ShowHideActionColumn()"/> 
+    <label> is Action Column Visible</label> -->
+    <br/>
+<H2>
+  Show /Hide Actions
+</H2>
+
+    <input type="checkbox"  value="allowEdit" (change)="showHideEdit()"/> 
+    <label> Remove Edit option</label>
+
+    <input type="checkbox" value="AllowDelete" (change)="showHideDelete()"/> 
+    <label> Remove Delete option </label>
+
+
+
+
+<select   #color (change)="ChangeColor($event.target,color.value)">
+  <option value="red">Red</option>
+  <option value="blue" >Blue</option>
+  <option selected value="black">Black</option>
+</select>
+<br/>
+<label>Please choose view data source </label>
+<select #ViewIDsl (change)="ChangeView($event.target,ViewIDsl.value)">
+
+  <option value="3">Employee </option>
+  <option value="1" selected >Student </option>
+  <option value="2">Student Department </option>
+
+</select>
+
+    <app-tree
+      [showBorders]="showBorders"
+      [showRowLines]="showRowLines"
+      [showSearchFied]="showSearchField"
+      [viewID]="treeService.ViewID"
+      [allowEdit]=allowEdit
+      [allowDelete]=AllowDelete
+      parentIdField="Head_ID"
+      columnIdName="ID"
+      [data]="datasource"
+      
+    ></app-tree>
+  </div>
+</div>
